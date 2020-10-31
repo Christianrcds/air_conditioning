@@ -1,0 +1,130 @@
+.ORG 00h 10h
+1Eh 00h 
+3Eh 00h 
+2Eh 00h 
+16h 00h 
+06h 00h 
+D3h 00h 
+26h 10h 
+DBh 00h 
+BBh 
+C2h 37h 10h 
+CAh 2Ch 10h 
+DBh 01h 
+BDh 
+C2h 42h 10h 
+DBh 02h 
+BAh 
+C2h 4Ah 10h 
+DBh 03h 
+B8h 
+C2h 52h 10h 
+C3h 0Eh 10h 
+D3h 00h 
+D3h 0Fh 
+D3h 0Eh 
+D3h 01h 
+C3h 0Eh 10h 
+0Eh FFh 
+79h 
+D3h 00h 
+CDh 74h 10h 
+C3h 17h 10h 
+6Fh 
+24h 
+CDh 74h 10h 
+C3h 1Dh 10h 
+57h 
+25h 
+CDh 74h 10h 
+C3h 23h 10h 
+47h 
+BBh 
+C2h 5Ah 10h 
+CAh 67h 10h 
+3Eh 14h 
+BCh 
+F4h CFh 10h 
+3Eh FFh 
+D3h 01h 
+C3h 29h 10h 
+3Eh 14h 
+BCh 
+FCh CFh 10h 
+3Eh F0h 
+D3h 01h 
+C3h 29h 10h 
+3Eh 10h 
+BCh 
+CAh ABh 10h 
+3Eh 11h 
+BCh 
+CAh B4h 10h 
+3Eh 12h 
+BCh 
+CAh BDh 10h 
+3Eh 13h 
+BCh 
+CAh C6h 10h 
+3Eh 14h 
+BCh 
+CAh CFh 10h 
+3Eh 15h 
+BCh 
+CAh DAh 10h 
+3Eh 16h 
+BCh 
+CAh E3h 10h 
+3Eh 17h 
+BCh 
+CAh ECh 10h 
+3Eh 18h 
+BCh 
+CAh F5h 10h 
+C9h 
+3Eh 44h 
+D3h 0Eh 
+3Eh 7Bh 
+D3h 0Fh 
+C9h 
+3Eh 44h 
+D3h 0Eh 
+3Eh 46h 
+D3h 0Fh 
+C9h 
+3Eh 44h 
+D3h 0Eh 
+3Eh 7Fh 
+D3h 0Fh 
+C9h 
+3Eh 44h 
+D3h 0Eh 
+3Eh 6Fh 
+D3h 0Fh 
+C9h 
+3Eh 3Eh 
+D3h 0Eh 
+3Eh 77h 
+D3h 0Fh 
+26h 14h 
+C9h 
+3Eh 3Eh 
+D3h 0Eh 
+3Eh 44h 
+D3h 0Fh 
+C9h 
+3Eh 3Eh 
+D3h 0Eh 
+3Eh 3Eh 
+D3h 0Fh 
+C9h 
+3Eh 3Eh 
+D3h 0Eh 
+3Eh 6Eh 
+D3h 0Fh 
+C9h 
+3Eh 3Eh 
+D3h 0Eh 
+3Eh 4Dh 
+D3h 0Fh 
+C9h 
