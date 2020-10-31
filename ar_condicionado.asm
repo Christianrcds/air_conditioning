@@ -1,10 +1,12 @@
 .org 1000h
 
 ;usar saide led como 00h e saida 8 segmento como 08h
+
 	mvi e, 00H	;váriavel de comparação com zero
 	mvi a, 00H	;resetar as saidas
 	mvi L, 00H	;registrador para aumento de temperatura, guarda o estado anterior para ver se teve mudanças
 	mvi d, 00H	;registrador para diminuir de temperatura
+	mvi s, 00H
 	out 00h
 	mvi h, 16	;guarda a temperatura
 
@@ -26,11 +28,14 @@ return_inc_temp:
 	in  02H	;idem ao anterior mas para diminuri a temperatura
 	cmp d
 	jnz diminuir_temp	
-
+	
 return_dec_temp:
-	mov a,b	; implementar
-	out 08h
+	in  03H	;le interruptor do estado, quente ou frio
+	cmp s
+	jnz temp_mode
+return_temp_mode:
 	jmp loop
+	
 
 turn_off:
 ;desliga todas as saidas
@@ -61,6 +66,26 @@ diminuir_temp:
 	call load_numbers
 	jmp return_dec_temp
 
+
+temp_mode:
+	mov s, a
+	cmp e
+	jnz temp_mode_hot
+	jz temp_mode_cold
+
+temp_mode_hot:
+	mvi a, 20
+	cmp h
+	cp load_number_20
+	jmp return_temp_mode
+
+temp_mode_cold:
+	mvi a, 20
+	cmp h
+	cnc load_number_20
+	jmp return_temp_mode
+	
+
 load_numbers:
 ;"switch case" para carregar o valor no interruptor
 ;obs: o programa atual so aceita valores entre [16,21] porem isso é facilmente aumentado adicionando mais opcoes nesta funcao
@@ -82,16 +107,17 @@ load_numbers:
 	mvi a, 21
 	cmp h
 	jz load_number_21
-    mvi a, 22
+	mvi a, 22
 	cmp h
 	jz load_number_22
-    mvi a, 23
-	cmp h
+      mvi a, 23
+      cmp h
 	jz load_number_23
-    mvi a, 24
+	mvi a, 24
 	cmp h
 	jz load_number_24
-	ret
+    ret
+
 
 ;funcoes para carregar os numeros nos displays 8 segmentos
 load_number_16: 
@@ -127,6 +153,7 @@ load_number_20:
 	out 0EH
 	mvi a, 77H
 	out 0FH
+	mvi h, 20
 ret
 
 load_number_21:
@@ -137,22 +164,22 @@ load_number_21:
 ret
 
 load_number_22:
-	mvi a, 3EH
-	out 0EH
-	mvi a, 3EH
-	out 0FH
+    mvi a, 3EH
+    out 0EH
+    mvi a, 3EH
+    out 0FH
 ret
 
 load_number_23:
-	mvi a, 3EH
-	out 0EH
-	mvi a, 6EH
-	out 0FH
+    mvi a, 3EH
+    out 0EH
+    mvi a, 6EH
+    out 0FH
 ret
 
 load_number_24:
-	mvi a, 3EH
-	out 0EH
-	mvi a, 4DH
-	out 0FH
+    mvi a, 3EH
+    out 0EH
+    mvi a, 4DH
+    out 0FH
 ret
